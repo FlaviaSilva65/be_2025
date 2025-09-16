@@ -1,0 +1,61 @@
+
+.icon {
+    width: 3em;
+    height: 3em;
+    background-image: url("../icons/arrow-return-left.svg");
+    background-repeat: no-repeat;
+}
+
+/** bg-dark : 
+ btn-toggle 
+ */
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+    background-color: #525252;
+}
+
+.btn-menu {
+    /* background-color: #3c3c3c; */
+    color: white;
+}
+
+.btn-menu:hover,
+.btn-menu:focus {
+    color: white;
+    /* background-color: #525252 !important; */
+    border-radius: 4px;
+
+}
+
+.required::before {
+    content: "*";
+    color: #dc3545;
+    font-weight: bold;
+    /* margin-left: 1rem; */
+}
+
+.labelBenef {
+    margin: 1em 0 0 0;
+    font-weight: bold;
+}
+
+.div_radio {
+    /*border: 3px solid #CCCCCC;*/
+    width: auto;
+    margin-right: 10px;
+    clear: both;
+}
+
+.div_radio p {
+    background-color: #bdcbd8;
+    margin: 0;
+    padding: 10px;
+    color: #000;
+    outline: thin;
+}
+
+.btnexcluirdoc {
+    border: none;
+    background-color: #cce5ff;
+}

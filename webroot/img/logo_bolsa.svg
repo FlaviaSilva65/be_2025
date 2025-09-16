@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="129.676mm" height="61.1752mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 127610.62 60201.03"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+   <clipPath id="id0">
+    <rect y="2309.13" width="58362.09" height="56407.71"/>
+   </clipPath>
+    <clipPath id="id1">
+     <rect transform="matrix(0.631696 -0.432737 0.432737 0.631696 0.174665 27763.8)" width="58822.44" height="48999.69"/>
+    </clipPath>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <image id="btn_bp.png" transform="matrix(0.729518 0.36945 -0.36945 0.729518 84698.4 0.00469282)" x="0" y="0" width="58822.83" height="52731.9" xlink:href="logo_bolsa_Images\logo_bolsa_ImgID1.png"/>
+  <g style="clip-path:url(#id0)">
+   <image id="btn_ba.png" style="clip-path:url(#id1)" transform="matrix(0.631696 -0.432737 0.432737 0.631696 0.174665 27763.8)" x="0" y="0" width="58822.74" height="48999.69" xlink:href="logo_bolsa_Images\logo_bolsa_ImgID2.png"/>
+  </g>
+ </g>
+</svg>
