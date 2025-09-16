@@ -562,16 +562,16 @@
         },
         {
             "name": "friendsofcake/cakepdf",
-            "version": "5.0.0",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfCake/CakePdf.git",
-                "reference": "aaf5138e1f2829b17b684d25f14db4ff8449ca84"
+                "reference": "e48ce0be0b843840db09cc041c4aeef2c8bc5bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfCake/CakePdf/zipball/aaf5138e1f2829b17b684d25f14db4ff8449ca84",
-                "reference": "aaf5138e1f2829b17b684d25f14db4ff8449ca84",
+                "url": "https://api.github.com/repos/FriendsOfCake/CakePdf/zipball/e48ce0be0b843840db09cc041c4aeef2c8bc5bb5",
+                "reference": "e48ce0be0b843840db09cc041c4aeef2c8bc5bb5",
                 "shasum": ""
             },
             "require": {
@@ -580,9 +580,9 @@
             },
             "require-dev": {
                 "cakephp/cakephp-codesniffer": "^5.0",
-                "dompdf/dompdf": "^2.0",
+                "dompdf/dompdf": "^3.0",
                 "mpdf/mpdf": "^8.1.6",
-                "phpunit/phpunit": "^10.3",
+                "phpunit/phpunit": "^10.5.5 || ^11.1.3",
                 "tecnickcom/tcpdf": "^6.3"
             },
             "suggest": {
@@ -604,9 +604,9 @@
             "homepage": "http://github.com/friendsofcake/CakePdf",
             "support": {
                 "issues": "https://github.com/FriendsOfCake/CakePdf/issues",
-                "source": "https://github.com/FriendsOfCake/CakePdf/tree/5.0.0"
+                "source": "https://github.com/FriendsOfCake/CakePdf/tree/5.1.0"
             },
-            "time": "2023-10-03T08:38:04+00:00"
+            "time": "2025-01-30T04:08:48+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
