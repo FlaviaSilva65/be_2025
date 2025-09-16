@@ -22,7 +22,7 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bolsas - cake_nv</title>
+    <title>Bolsas de Estudos</title>
     <?= $this->Html->meta('favicon.png', '/favicon.png', ['type' => 'icon']) ?>
 
     <?php // $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake', 'page_home', 'bootstrap.min']) 

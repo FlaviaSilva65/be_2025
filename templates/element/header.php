@@ -11,7 +11,7 @@
         <div class="logoTitulo d-none d-lg-flex align-items-center">
             <div class="position-relative">
                 <?= $this->Html->image('titulo.svg') ?>
-                <p>BOLSA DE ESTUDOS</p>
+                <p class="py-0">BOLSA DE ESTUDOS</p>
             </div>
         </div>
 

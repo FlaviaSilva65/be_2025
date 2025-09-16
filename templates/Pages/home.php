@@ -64,7 +64,7 @@ use Dompdf\Css\Style;
 
   <?php } else { ?>
     <div class="my-4 d-flex justify-content-around">
-      <!-- <?php $this->Html->link('<i class="fa fa-book"></i> ' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Parcial ' : ' Inscreva-se na Bolsa Parcial'), ['controller' => 'Responsavels', 'action' => 'add', 'parcial'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?> -->
+      <!-- <?php // $this->Html->link('<i class="fa fa-book"></i> ' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Parcial ' : ' Inscreva-se na Bolsa Parcial'), ['controller' => 'Responsavels', 'action' => 'add', 'parcial'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?> -->
 
       <?php $this->Html->link('<i class="fa fa-book"></i> ' . ((isset($expirado) && $expirado == 'expirado') ? ' Correção de Documentos - Bolsa Parcial ' : ' Inscreva-se na Bolsa Parcial'), ['controller' => 'Responsavels', 'action' => 'add', 'parcial'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?>
 
@@ -76,12 +76,13 @@ use Dompdf\Css\Style;
       <?php } else { ?>
 
         <?= $this->Html->link('<i class="fa fa-book"></i> ' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Parcial ' : ($evento->tp_eventos_id == 3 ? ' Recurso - Bolsa Parcial' : ($evento->tp_eventos_id == 1 ? ' Inscreva-se na Bolsa Parcial' : ''))), ['controller' => 'Responsavels', 'action' => 'add', 'parcial'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?>
-        <?= $evento->remanescente == null ?? ($this->Html->link('<i class="fas fa-swimmer"></i> ' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Atleta ' : ($evento->remanescente == null ? ' Recurso - Bolsa Atleta' : ($evento->tp_eventos_id == 1 ? ' Inscreva-se na Bolsa Atleta' : ''))), ['controller' => 'Responsavels', 'action' => 'add', 'atleta'], ['class' => 'btn btn-dark px-4', 'escape' => false])) ?>
+        
+        <?php $this->Html->link('<i class="fas fa-swimmer"></i> ' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Atleta ' : ($evento->remanescente == null ? ' Recurso - Bolsa Atleta' : ($evento->tp_eventos_id == 1 ? ' Inscreva-se na Bolsa Atleta' : ''))), ['controller' => 'Responsavels', 'action' => 'add', 'atleta'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?>
 
       <?php } ?>
 
 
-      <?php $this->Html->link('<i class="fas fa-swimmer"></i>' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Atleta ' : ' Inscreva-se na Bolsa Atleta'), ['controller' => 'Responsavels', 'action' => 'add', 'atleta'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?>
+      <?= $this->Html->link('<i class="fas fa-swimmer"></i>' . ((isset($expirado) && $expirado == 'prazoentrega') ? ' Correção de Documentos - Bolsa Atleta ' : ' Inscreva-se na Bolsa Atleta'), ['controller' => 'Responsavels', 'action' => 'add', 'atleta'], ['class' => 'btn btn-dark px-4', 'escape' => false]) ?>
 
 
     </div>

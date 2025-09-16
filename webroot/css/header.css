@@ -251,7 +251,7 @@ input[type="email"]:focus, input[type="date"]:focus, input[type="time"]:focus, i
 .headerBtns{ position: absolute; right: 2em; top: 2.7em; }
 .logoTitulo{ display:flex; align-items:center; justify-content: center; }
 .logoTitulo img{ width:18em; }
-.logoTitulo p{ width:100%; text-align:center; position: absolute; left:0; bottom:0; color:white; font-size:115%; padding: 0 0.3em; white-space:nowrap;}
+.logoTitulo p{ width:100%; text-align:center; position: absolute; left:0; bottom:0; color:white; font-size:105%; padding: 0 0.3em; white-space:nowrap;}
 
 /* ---------------------------------- Positions ----------------------------------- */
 .absolute-tl{ position: absolute; top: 0; left: 0; }
