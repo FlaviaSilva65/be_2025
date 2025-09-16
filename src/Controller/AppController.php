@@ -46,6 +46,12 @@ class AppController extends Controller
     //     // for all controllers in our application, make index and view
     //     // actions public, skipping the authentication check'controller' => 'Pages',
         $this->Authentication->addUnauthenticatedActions(['display']);
+
+        $eventos = $this->fetchTable('Eventos');
+
+        $eventoAtual = $eventos->getEventoAtual();
+
+        $this->set('eventoAtual', $eventoAtual);
     }
     
     public function initialize(): void

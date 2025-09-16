@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -104,5 +105,18 @@ class EventosTable extends Table
         $rules->add($rules->existsIn('tp_eventos_id', 'TpEventos'), ['errorField' => 'tp_eventos_id']);
 
         return $rules;
+    }
+
+    public function getEventoAtual(): ?\App\Model\Entity\Evento
+    {
+        $hoje = new \DateTime();
+
+        return $this->find()
+            ->where([
+                'dt_inicio <=' => $hoje,
+                'dt_fim >=' => $hoje,
+            ])
+            ->orderBy(['dt_inicio' => 'ASC'])
+            ->first();
     }
 }
