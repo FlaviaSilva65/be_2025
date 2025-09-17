@@ -62,7 +62,8 @@ class CandidatosController extends AppController
      */
     public function add($id)
     {
-        $candidato = $this->Candidatos->newEmptyEntity();
+        // $candidato = $this->Candidatos->newEmptyEntity();
+        $candidato = $this->Candidatos->findOrCreate(['id' => $id]);
 
         $comp_familiares = $this->Candidatos->Responsavels->CompFamiliares->find()->where(['responsavel_id ' => $id]);
 
@@ -91,7 +92,7 @@ class CandidatosController extends AppController
         // debug($comp_familiares);
         // die;
 
-        if ($this->request->is('post')) {
+        if ($this->request->is(['post', 'put'])) {
             $candidato = $this->Candidatos->patchEntity($candidato, $this->request->getData());
 
             // debug($this->request->getData());
@@ -102,12 +103,14 @@ class CandidatosController extends AppController
 
                 // return $this->redirect(['action' => 'index']);
 
-                /** Avan�a para a pr�xima Tela onde salva as Informações dos Componentes familiares */
+                /** Avança para a próxima Tela onde salva as Informações dos Componentes familiares */
                 return $this->redirect(['action' => 'addCompFamiliar', $candidato->id, $candidato->responsavel_id]);
             }
             $this->Flash->error(__('The candidato could not be saved. Please, try again.'));
         }
         $escolas = $this->Candidatos->Escolas->find('list', ['limit' => 200])->where(['ic_ativo' => 1]);
+        $tipos = $this->Candidatos->Tipos->find('list', ['limit' => 10])->where(['ic_ativo' => 1]);
+        $anos = $this->Candidatos->Anos->find('list', ['limit' => 20])->where(['ic_ativo' => 1]);
         // $tipos = $this->Candidatos->Escolas->EscolaTiposAnos->find('list')
         //     ->select(['tipo_id' => 'EscolaTiposAnos.tipo_id', 'nm_tipo' => 'Tipos.nm_tipo'])
         //     ->contain(['Anos', 'Tipos'])
@@ -119,7 +122,7 @@ class CandidatosController extends AppController
 
         // $this->Candidatos->EscolaTiposAnos->find('list')->where(['escola_id' => 1]);
         // $this->set(compact('candidato', 'escolas', 'tipos'));
-        $this->set(compact('candidato', 'escolas'));
+        $this->set(compact('candidato', 'escolas', 'tipos', 'anos'));
     }
 
     public function addCompFamiliar($cand, $resp)
@@ -223,6 +226,22 @@ class CandidatosController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function indexCand($responsavel_id)
+    {
+        $candidatos = $this->Candidatos->find()
+            ->where(['responsavel_id' => $responsavel_id])
+            ->contain(['Inscricoes' => function ($q) {
+                return $q->groupBy(['Inscricoes.candidato_id'])->order(['Inscricoes.ano']);
+                // ->limit(1);
+            }]);
+        // $candidatos = $this->Candidatos->find('all', contain: ['Inscricoes'])->where(['responsavel_id' => $responsavel_id]);
+
+        // debug($candidatos);
+        // die;
+
+        $this->set(compact('candidatos'));
     }
 
     public function opcoestipos()

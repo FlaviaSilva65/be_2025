@@ -130,6 +130,8 @@ class ResponsavelsController extends AppController
     {
         $responsavel = $this->Responsavels->get($id);
 
+        $table_candidatos =  $this->fetchTable('Candidatos');
+
         // debug($responsavel);
         // die;
 
@@ -160,8 +162,19 @@ class ResponsavelsController extends AppController
                  * se não tiver vai direto para o Candidatos/add 
                  * do contrário vai para a Candidatos/index
                  */
-                return $this->redirect(['controller' => 'candidatos','action' => 'add', $responsavel->id]);
+                $candidatos = $table_candidatos->find('all')->where(['responsavel_id' => $responsavel->id]);
+
+                if ($candidatos) {
+
+                    return $this->redirect(['controller' => 'candidatos', 'action' => 'indexCand', $responsavel->id]);
+
+                    // debug($candidatos);
+                    // die;
+                } else {
+                    return $this->redirect(['controller' => 'candidatos', 'action' => 'add', $responsavel->id]);
+                }
             }
+
             $this->Flash->error('Houve algum erro, não salvou os dados.');
         }
 

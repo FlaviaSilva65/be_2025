@@ -1,3 +1,6 @@
+:root {
+    --blue-35: #0451a3;
+}
 
 .icon {
     width: 3em;
@@ -26,6 +29,10 @@
     /* background-color: #525252 !important; */
     border-radius: 4px;
 
+}
+
+.btn-blue-35 {
+    background-color: var(--blue-35);
 }
 
 .required::before {
@@ -58,4 +65,11 @@
 .btnexcluirdoc {
     border: none;
     background-color: #cce5ff;
+}
+
+.top-blue-bar {
+    background-color: #0451a3;
+    height: 3rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }

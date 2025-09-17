@@ -31,12 +31,16 @@
 
 
         <div class="col-12 col-md-3">
-            <?= $this->Form->control('dt_nascimento', ['label' => 'Dt. Nascimento', 'id' => 'nasc', 'value' => $nasc ?? '']); ?>
+            <?= $this->Form->control('dt_nascimento', ['label' => 'Dt. Nascimento', 'id' => 'nasc']); ?>
         </div>
         <div class="col-12 col-md-3">
             <?= $this->Form->control('vl_ctnumero', [
-                'id' => 'termo', 'maxlength' => 12, 'label' => 'Certidão Nasc.(Termo)'
-                    . '<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Exemplo de Cert. Nascimento" class="text-danger"><i class="bi bi-question-lg"> </i></a>', 'escape' => false, 'placeholder' => 'Núm. da certidão de nascimento'
+                'id' => 'termo',
+                'maxlength' => 12,
+                'label' => 'Certidão Nasc.(Termo)'
+                    . '<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Exemplo de Cert. Nascimento" class="text-danger"><i class="bi bi-question-lg"> </i></a>',
+                'escape' => false,
+                'placeholder' => 'Núm. da certidão de nascimento'
             ]); ?>
         </div>
         <div class="col-12 col-md-3">
@@ -97,12 +101,18 @@
                 <?= $this->Form->control('escolaid', ['name' => 'idescola', 'type' => 'hidden']) ?>
             </div>
             <div class="col-12 col-sm-4 px-2" id="xx">
-                <?= $this->Form->control('tipo_id', ['id' => 'tipos', 'class' => 'p-1 w-100', 'empty' => '---', 'type' => 'select', 'label' => 'Nível de Ensino']); ?>
+                <?= $this->Form->control('tipo_id', ['id' => 'tipos', 'class' => 'p-1 w-100', 'empty' => '---', 'type' => 'select', 'label' => 'Nível de Ensino', 'empty' => '---', 'options' => $tipos,]); ?>
             </div>
             <div class="col-12 col-sm-4 ps-2" id="anoid">
                 <?= $this->Form->control('ano_id', [
-                    'id' => 'ano', 'class' => 'p-1 w-100', 'empty' => '---',
-                    'type' => 'select', 'label' => 'Anos Escolares ', 'onblur' => 'alerta()'
+                    'id' => 'ano',
+                    'class' => 'p-1 w-100',
+                    'empty' => '---',
+                    'type' => 'select',
+                    'label' => 'Anos Escolares ',
+                    'empty' => '---',
+                    'options' => $anos,
+                    'onblur' => 'alerta()'
                 ]); ?>
             </div>
         </div>
@@ -111,7 +121,12 @@
         </div>
         <div class="col-md-12 px-0 d-sm-flex flex-sm-wrap">
             <div class="col-sm-6 col-md-3 pe-2">
-                <?= $this->Form->control('ds_moradia', ['type' => 'select', 'class' => 'p-1 w-100', 'options' => ['empty' => '---', '1' => 'Área de Reg. Fundiária', '2' => 'Própria', '3' => 'Cedida', '4' => 'Financiada', '5' => 'Alugada'], 'label' => 'Tipo de Moradia']); ?>
+                <?= $this->Form->control('ds_moradia', [
+                    'type' => 'select',
+                    'class' => 'p-1 w-100',
+                    'options' => ['empty' => '---', '1' => 'Área de Reg. Fundiária', '2' => 'Própria', '3' => 'Cedida', '4' => 'Financiada', '5' => 'Alugada'],
+                    'label' => 'Tipo de Moradia'
+                ]); ?>
             </div>
             <div class="col-sm-6 col-md-3 px-2">
                 <?= $this->Form->control('ds_dependentes', ['type' => 'select', 'class' => 'p-1 w-100', 'options' => ['empty' => '---', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => 'mais de 4'], 'label' => 'Depend. menor(s) de 18 anos.']); ?>
@@ -124,13 +139,16 @@
                             Ao Final do Projeto excluir esse bloco 
                         -->
                 <?= $this->Form->control('ds_patrimonio', [
-                    'type' => 'select', 'class' => 'p-1 w-100',
+                    'type' => 'select',
+                    'class' => 'p-1 w-100',
                     'options' => [
-                        'empty' => '---', '5' => '0 A R$ 150.000,00',
+                        'empty' => '---',
+                        '5' => '0 A R$ 150.000,00',
                         '4' => 'R$ 151.000,00 A R$ 300.000,00',
                         '3' => 'R$ 301.000,00 A R$ 450.000,00',
                         '2' => 'Acima de R$ 451.000,00'
-                    ], 'label' => 'Patrimônio Familiar'
+                    ],
+                    'label' => 'Patrimônio Familiar'
                 ]); ?>
                 <?php $this->Form->control('ds_transporte', ['type' => 'select', 'class' => 'p-1 w-100', 'options' => ['empty' => '---', '5' => 'Coletivo', '4' => 'Fretado', '3' => 'Particular'], 'label' => 'Meio de transporte']); ?>
             </div>
