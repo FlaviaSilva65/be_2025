@@ -57,7 +57,7 @@
             $this->Element('modal_login') .
             $this->Flash->render() ?>
 
-        <div class="row gx-0">
+        <div class="w-100 gx-0">
             <?php if ($user) { ?>
                 <div class="col-2 p-0" style="min-height: 43.5em;">
                     <?= $this->element('menu') ?>
@@ -67,9 +67,9 @@
                 </div>
             <?php } else { ?>
 
-                <div class="w-100 gx-0">
+                
                     <?= $this->fetch('content') ?>
-                </div>
+                
             <?php } ?>
         </div>
 

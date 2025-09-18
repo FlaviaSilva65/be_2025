@@ -73,3 +73,12 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
+
+.brTitle {
+    background-color: #eeeeee;
+    border-left: 6px solid #0451a3;
+    color: #0451a3;
+    font-weight: bold;
+    font-size: 20px;
+    /* width: 98%; */
+}
