@@ -76,8 +76,7 @@ class ResponsavelsController extends AppController
                     return $this->redirect(['action' => 'edit', $resp->id]);
                 } else {
                     $responsavel = $resp;
-                    $responsavel->setError('cd_verificacao','Código Inválido');
-                    
+                    $responsavel->setError('cd_verificacao', 'Código Inválido');
                 }
             }
         }
@@ -91,12 +90,24 @@ class ResponsavelsController extends AppController
 
         $responsavel = $this->Responsavels->newEmptyEntity();
 
+        $table_bem_moveis =  $this->fetchTable('BemMoveis');
+
+        // $bem_moveis = $this->Responsavels->BemMoveis->newEntity();
+        // $this->set('bem_moveis', $bem_moveis);
+
+        // $bem_imoveis = [$this->Responsavels->BemImoveis->newEntity()];
+        // $this->set('bem_imoveis', $bem_imoveis);
+
         if ($this->request->is('post')) {
 
             $randomString = rand(100000, 999999);
             $responsavel->cd_verificacao = $randomString;
 
-            $responsavel = $this->Responsavels->patchEntity($responsavel, $this->request->getData());
+            $responsavel = $this->Responsavels->patchEntity(
+                $responsavel,
+                $this->request->getData(),
+                ['associated' => ['BemMoveis', 'BemImoveis']]
+            );
 
             if ($this->Responsavels->save($responsavel)) {
 
@@ -114,7 +125,7 @@ class ResponsavelsController extends AppController
 
                 $this->Flash->success('Responsável salvo com sucesso.');
                 // return $this->redirect(['action' => 'index']);
-                return $this->redirect(['controller' => 'candidatos','action' => 'add']);
+                return $this->redirect(['controller' => 'candidatos', 'action' => 'add']);
             } else {
                 $this->Flash->error('Houve um erro, não podemos salvar as informações.');
             }

@@ -38,9 +38,13 @@ class ResponsavelsTable extends Table
         ]);
         $this->hasMany('BemImoveis', [
             'foreignKey' => 'responsavel_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
         $this->hasMany('BemMoveis', [
             'foreignKey' => 'responsavel_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
     }
 

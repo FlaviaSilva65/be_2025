@@ -65,11 +65,47 @@
                         'radioWrapper' => '<div class="d-inline mx-3">{{label}}</div>',
                         'radio' => '<input type="radio" name="{{name}}" value="{{value}}"{{attrs}} class="form-check-input styled-radio mt-0 me-2">',
                     ]
-                ]
+                ],
+                ['onchange' => 'verSelecaoBM(this)', 'class' => 'div_radio']
             ); ?>
         </div>
 
     </div>
+    <fieldset id="containerbemmovel">
+        <?php foreach ($bem_moveis as $i => $bem_movel) : ?>
+            <div class="col-md-12 px-0 d-sm-flex flex-sm-wrap" id="bemmovel">
+
+                <div class="col-sm-6 col-md-4">
+                    <?= $this->Form->control('bem_moveis.' . $i . '.id', ['value' => $bem_movel->id]); ?>
+                    <?= $this->Form->control('bem_moveis.' . $i . '.nm_modelo', ['value' => $bem_movel->nm_modelo, 'onblur' => 'verificar_ic_bm(this)', 'label' => 'Modelo', 'required' => false]); ?>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <?= $this->Form->control('bem_moveis.' . $i . '.nm_marca', ['value' => $bem_movel->nm_marca, 'label' => 'Marca', 'required' => false]); ?>
+                </div>
+                <div class="col-sm-6 col-md-1">
+                    <?= $this->Form->control('bem_moveis.' . $i . '.num_ano_veic', ['type' => 'text', 'value' => $bem_movel->num_ano_veic, 'class' => 'year',  'label' => 'Ano', 'required' => false]); ?>
+                </div>
+                <div class="col-sm-6 col-md-2">
+                    <?= $this->Form->control(
+                        'bem_moveis.' . $i . '.vl_veiculo',
+                        [
+                            'value' => $bem_movel->vl_veiculo ? number_format($bem_movel->vl_veiculo, 2, ',', ' ') : '',
+                            'type' => 'text',
+                            'label' => 'Valor',
+                            'class' => 'money',
+                            'required' => false
+                        ]
+                    ); ?>
+
+                </div>
+                <div class="col-1 mt-2 mt-md-5">
+                    <button class="btnexcluirdoc d-flex" style="background-color:transparent;" type="button" onclick="modal_exclusao_bm(this)">
+                        <i class="fa fa-trash text-danger"></i>
+                    </button>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </fieldset>
 </div>
 
 
@@ -78,7 +114,7 @@
 <div class="col-11 col-lg-11 mx-auto d-flex justify-content-center my-2 flex-wrap">
 
 
-   <div class="col-11 col-md-11 col-lg-6 d-flex justify-content-around mt-4">
+    <div class="col-11 col-md-11 col-lg-6 d-flex justify-content-around mt-4">
         <button class="btn btn-warning mt-2 mb-2 px-4 text-white" onclick="history.back()">
             <i class="bi bi-arrow-return-left "></i>
             Voltar
