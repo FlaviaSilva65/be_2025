@@ -226,7 +226,7 @@ function verificaContato() {
     //     alert(telefone.length);
     //     alert(celular.length);
 
-        
+
     // }
 }
 
@@ -236,11 +236,11 @@ function verificaContato() {
  * @param {String} campos - id da div dos campos
  */
 function adicionarCampos(campos) {
-    
+
     campos = campos || "compfamdiv";
     const node = window[campos] || document.querySelector("#containerfam div");
     window[campos + "container"] = window[campos + "container"] || node.parentNode;
-    
+
     window[campos] = window[campos] || node.cloneNode(true);
     const clone = window[campos].cloneNode(true);
     // console.log(campos + "container", campos, node, window[campos]);
@@ -256,23 +256,30 @@ function adicionarCampos(campos) {
 
     if (window[campos + "container"].lastElementChild) var invalid = true;
     if (window[campos + "container"].lastElementChild)
-    for (let input of window[campos + "container"].lastElementChild.querySelectorAll("input, select")) {
-        invalid = input.required && !input.value;
-        var erromessage = input.parentNode.parentNode.querySelector(".error-message");
-        if (erromessage) erromessage.style.display = invalid ? "block" : "none";
+        for (let input of window[campos + "container"].lastElementChild.querySelectorAll("input, select")) {
+            invalid = input.required && !input.value;
+            var erromessage = input.parentNode.parentNode.querySelector(".error-message");
+            if (erromessage) erromessage.style.display = invalid ? "block" : "none";
 
-        // console.log(input.value, invalid, input.required);
-        console.log(document.querySelector("#containerfam div").children[0]);
-    }
+            // console.log(input.value, invalid, input.required);
+            console.log(document.querySelector("#containerfam div").children[0]);
+        }
     if (!invalid) window[campos + "container"].appendChild(clone);
-    
+
     // document.getElementById('comperro').style.display = "block";
     $(".money").mask("#.##0,00", {
         reverse: true,
     });
 }
 
-function teste (campos) {
+function verSelecaoBM(src) {
+
+    let containerbemmovel = document.querySelector('#containerbemmovel')
+    containerbemmovel.disabled = src.value == 0;
+    containerbemmovel.classList[src.value == 0 ? 'add' : 'remove']('d-none');
+}
+
+function teste(campos) {
 
     const listar = document.querySelector('.fam');
 
